@@ -6,7 +6,7 @@ angular.module('com.verico.ng-cordova-text-storage')
         var _private ={};
 
 
-        _public.readFile = function(fs,name){
+        _public.readFile = function(name){
             var deferred = $q.defer();
 
             fileSystem.getFileSystem().then(function(fs){
