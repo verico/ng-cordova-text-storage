@@ -18,7 +18,7 @@ module.exports = function (config) {
             'bower_components/angular-mocks/angular-mocks.js',
 
             //Source files
-            'src/n-cordova-text-storage-module.js',
+            'src/ng-cordova-text-storage-module.js',
             'src/**/*.js',
             //Specg
             'tests/textStorageSpec.js'

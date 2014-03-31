@@ -21,12 +21,12 @@ module.exports = function(grunt) {
                     'src/ng-cordova-text-storage-module.js',
                     'src/**/*.js'
                 ],
-                dest: 'ng-cordova-text-storage-concat.js'
+                dest: 'ng-cordova-text-storage.dist.js'
             }
         },
         ngmin: {
             all:{
-                src:['ng-cordova-text-storage-concat.js'],
+                src:['ng-cordova-text-storage.dist.js'],
                 dest: 'build/ng-cordova-text-storage.ng.js'
             }
         },

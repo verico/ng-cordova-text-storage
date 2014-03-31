@@ -6,7 +6,7 @@ angular.module('com.verico.ng-cordova-text-storage').
         _private.saveFolder = 'textStorage';
 
         _public.getFilename = function(key){
-            return _private.saveFolder + '/' + key + '.json';
+            return key + '.json';
         };
 
         return _public;
