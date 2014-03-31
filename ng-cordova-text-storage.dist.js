@@ -11,11 +11,14 @@ angular.module('com.verico.ng-cordova-text-storage')
 
             fileSystem.getFileSystem().then(function(fs){
                 fs.root.getFile(filenameFactory.getFilename(name), {create: false, exclusive: false}, function(fileEntry){
-                    var reader = fileSystem.getFileReader();
-                    reader.onloadend = function(evt) {
-                        deferred.resolve(evt.target.result);
-                    };
-                    reader.readAsText(fileEntry);
+                    fileEntry.file(function(file){
+                        var reader = fileSystem.getFileReader();
+                        reader.onloadend = function(evt) {
+                            deferred.resolve(evt.target.result);
+                        };
+                        reader.readAsText(file);
+
+                    }, deferred.reject);
 
                 }, deferred.reject);
 

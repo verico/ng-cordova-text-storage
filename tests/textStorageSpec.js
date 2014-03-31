@@ -11,7 +11,7 @@ describe('Map tests', function() {
         var  retFile = { fullPath: path };
         retFile.file = function(cb,cbErr){
             cb({
-                size: fileSize,
+                size: 1234,
                 remove : function(cb){
                     cb();
                 }
@@ -113,7 +113,15 @@ describe('Map tests', function() {
 
             textStorage.setItem('test',content).then(function(){
                 expect(createdFile.textContent).toEqual(content);
-                done();
+
+                textStorage.getItem('test').then(function(fileContent){
+                    expect(fileContent).toEqual(content);
+                    done();
+                },function(err){
+                    //Should NOT hit this.
+                    expect(true).toEqual(false);
+                    done();
+                });
 
             },function(){
                 //Should NOT hit this.
@@ -124,25 +132,6 @@ describe('Map tests', function() {
             timeout.flush();
         });
 
-        it('Get file',function(done){
-            var txt = 'test content in the file';
-
-            createdFile = {
-                textContent : txt
-            };
-
-
-            textStorage.getItem('test').then(function(content){
-                expect(content).toEqual(txt);
-                done();
-            },function(err){
-                //Should NOT hit this.
-                expect(true).toEqual(false);
-                done();
-            });
-
-            timeout.flush();
-        });
     });
 });
 
