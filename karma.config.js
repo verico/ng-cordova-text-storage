@@ -18,10 +18,10 @@ module.exports = function (config) {
             'bower_components/angular-mocks/angular-mocks.js',
 
             //Source files
-            'src/ng-cordova-text-storage-module.js',
+            'src/n-cordova-text-storage-module.js',
             'src/**/*.js',
-            //Spec
-            'tests/file-downloader-Specs.js'
+            //Specg
+            'tests/textStorageSpec.js'
         ],
         exclude: [],
         reporters: ['progress','coverage'],

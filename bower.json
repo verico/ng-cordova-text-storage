@@ -16,5 +16,5 @@
     "devDependencies": {
         "jasmine": "2.0.0"
     },
-    "description": "Angular-Cordova KV-file store"
+    "description": "Angular-Cordova for storing strings in json files. Can be used as an alternativ to LocalStorage without the size limit"
 }

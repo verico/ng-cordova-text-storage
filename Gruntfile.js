@@ -3,12 +3,12 @@ module.exports = function(grunt) {
 // 1. All configuration goes here
 
     grunt.initConfig({
-       // pkg: grunt.file.readJSON('package.json'),
-//        karma: {
-//            unit: {
-//                configFile: 'karma.config.js'
-//            }
-//        },
+       pkg: grunt.file.readJSON('package.json'),
+        karma: {
+            unit: {
+                configFile: 'karma.config.js'
+            }
+        },
         clean: {
             build: {
                 src: [ 'coverage', 'build' ],
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
         },
         ngmin: {
             all:{
-                src:['ng-cordova-text-storage-module-concat.js'],
+                src:['ng-cordova-text-storage-concat.js'],
                 dest: 'build/ng-cordova-text-storage.ng.js'
             }
         },
@@ -35,25 +35,16 @@ module.exports = function(grunt) {
                 src: 'build/ng-cordova-text-storage.ng.js',
                 dest: 'ng-cordova-text-storage.min.js'
             }
+        },
+        shell: {
+            install: {
+                options: { stdout: true },
+                command: [
+                    'npm install',
+                    'bower install'
+                ].join('&&')
+            }
         }
-//        shell: {
-//            install: {
-//                options: { stdout: true },
-//                command: [
-//                    'npm install',
-//                    'bower install'
-//                ].join('&&')
-//            }
-//        },
-//        watch: {
-//            scripts: {
-//                files: ['src/**/*.js', 'tests/**/*.js'],
-//                tasks: ['concat'],
-//                options: {
-//                    spawn: false
-//                }
-//            }
-//        }
     });
 
     //Modules
@@ -68,6 +59,6 @@ module.exports = function(grunt) {
 
     //Tasks
     grunt.registerTask('install', ['shell:install']);
-    grunt.registerTask('build', ['clean','concat','ngmin','uglify']);
+    grunt.registerTask('build', ['clean','karma','concat','ngmin', 'uglify']);
     grunt.registerTask('default', ['install', 'build']);
 };
