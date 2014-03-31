@@ -1,20 +1,30 @@
 angular.module('com.verico.ng-cordova-text-storage').
-    service('fileSystem', function ($q) {
+    service('fileSystem', function ($q,$window) {
         var _public = {};
+
+        var fileSystemObj = null;
 
         _public.getFileSystem = function() {
             var deferred = $q.defer();
 
-            function onSuccess(fs) {
-                deferred.resolve(fs);
+
+            if(fileSystemObj != null)
+            {
+                deferred.resolve(fileSystemObj);
             }
+            else{
 
-            function onError(error) {
-                deferred.reject(error);
+                function onSuccess(fs) {
+                    fileSystemObj = fs;
+                    deferred.resolve(fs);
+                }
+
+                function onError(error) {
+                    deferred.reject(error);
+                }
+                $window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, onError);
+
             }
-
-            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, onError);
-
 
             return deferred.promise;
         };
