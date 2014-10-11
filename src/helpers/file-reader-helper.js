@@ -1,13 +1,12 @@
-angular.module('com.verico.ng-cordova-text-storage')
-    .service('fileReader', function ($q,fileSystem,filenameFactory) {
+
+(function(){
+
+    var FileReader = function ($q,fileSystem,filenameFactory) {
 
         var _public ={};
-        var _private ={};
-
 
         _public.readFile = function(name){
             var deferred = $q.defer();
-
             fileSystem.getFileSystem().then(function(fs){
                 fs.root.getFile(filenameFactory.getFilename(name), {create: false, exclusive: false}, function(fileEntry){
                     fileEntry.file(function(file){
@@ -28,8 +27,9 @@ angular.module('com.verico.ng-cordova-text-storage')
             return deferred.promise;
         };
 
-
-
-
         return _public;
-});
+    };
+
+    angular.module('com.verico.ng-cordova-text-storage').service('fileReader', FileReader);
+})();
+
