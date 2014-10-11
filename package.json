@@ -11,9 +11,8 @@
         "grunt-karma": "latest",
         "grunt-shell": "latest",
         "grunt-contrib-concat": "latest",
-        "grunt-ngmin": "latest",
         "grunt-contrib-uglify": "latest",
-        "grunt-contrib-clean": "latest",
-        "grunt-contrib-watch": "~0.5.3"
+        "grunt-contrib-clean": "latest"
+
     }
 }
