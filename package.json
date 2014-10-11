@@ -1,18 +1,17 @@
 {
-    "name": "ng-cordova-text-storage.js",
-    "devDependencies": {
-        "karma": "latest",
-        "phantomjs": "latest",
-        "karma-spec-reporter": "latest",
-        "karma-jasmine": "~0.2.0",
-        "karma-phantomjs-launcher": "latest",
-        "karma-coverage": "latest",
-        "grunt": "latest",
-        "grunt-karma": "latest",
-        "grunt-shell": "latest",
-        "grunt-contrib-concat": "latest",
-        "grunt-contrib-uglify": "latest",
-        "grunt-contrib-clean": "latest"
-
-    }
+  "name": "ng-cordova-text-storage.js",
+  "devDependencies": {
+    "phantomjs": "~1.9.10",
+    "karma-jasmine": "~0.2.0",
+    "grunt-ng-annotate": "~0.4.0",
+    "karma": "~0.12.24",
+    "karma-spec-reporter": "0.0.13",
+    "grunt": "~0.4.5",
+    "grunt-karma": "~0.9.0",
+    "karma-coverage": "~0.2.6",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-uglify": "~0.6.0",
+    "grunt-contrib-clean": "~0.6.0"
+  }
 }

@@ -10,11 +10,11 @@
         "Gruntfile.js"
     ],
     "dependencies": {
-        "angular": "1.2.15",
-        "angular-mocks": "1.2.15"
+        "angular": "1.2.26"
     },
     "devDependencies": {
-        "jasmine": "2.0.0"
+        "jasmine": "2.0.0",
+        "angular-mocks": "1.2.26"
     },
-    "description": "Angular-Cordova for storing strings in json files. Can be used as an alternativ to LocalStorage without the size limit"
+    "description": "Angular-Cordova for storing strings in json files. Can be used as an alternative to LocalStorage without the size limit"
 }
